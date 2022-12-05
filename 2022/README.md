@@ -11,9 +11,9 @@
 
 <!--SOLUTIONS-->
 
-[![Day](https://badgen.net/badge/01/%E2%98%85%E2%98%85/green)](src/day04)
-[![Day](https://badgen.net/badge/02/%E2%98%85%E2%98%85/green)](src/day04)
-[![Day](https://badgen.net/badge/03/%E2%98%85%E2%98%85/green)](src/day04)
+[![Day](https://badgen.net/badge/01/%E2%98%85%E2%98%85/green)](src/day01)
+[![Day](https://badgen.net/badge/02/%E2%98%85%E2%98%85/green)](src/day02)
+[![Day](https://badgen.net/badge/03/%E2%98%85%E2%98%85/green)](src/day03)
 [![Day](https://badgen.net/badge/04/%E2%98%85%E2%98%85/green)](src/day04)
 [![Day](https://badgen.net/badge/05/%E2%98%85%E2%98%85/green)](src/day05)
 ![Day](https://badgen.net/badge/06/%E2%98%86%E2%98%86/gray)
@@ -69,23 +69,23 @@ yarn start 1
 
 ```
 Day 01
-Time part 1: -
-Time part 2: -
-Both parts: -
+Time part 1: 0.449ms
+Time part 2: 1.358ms
+Both parts: 1.806603ms
 ```
 
 ```
 Day 02
-Time part 1: -
-Time part 2: -
-Both parts: -
+Time part 1: 2.381ms
+Time part 2: 1.324ms
+Both parts: 3.705749ms
 ```
 
 ```
 Day 03
-Time part 1: -
-Time part 2: -
-Both parts: -
+Time part 1: 3.746ms
+Time part 2: 2.104ms
+Both parts: 5.849905ms
 ```
 
 ```
@@ -97,9 +97,9 @@ Both parts: 3.4450269999999996ms
 
 ```
 Day 05
-Time part 1: 0.744ms
-Time part 2: 1.152ms
-Both parts: 1.895961ms
+Time part 1: 0.864ms
+Time part 2: 1.075ms
+Both parts: 1.939329ms
 ```
 
 ```
@@ -243,8 +243,8 @@ Both parts: -
 ```
 
 ```
-Total stars: 4/50
-Total time: 5.341ms
+Total stars: 10/50
+Total time: 16.747ms
 ```
 
 <!--/RESULTS-->

@@ -14,12 +14,10 @@ const t13 = {
   input: `nppdvjthqldpwncqszvftbrmjlhg`,
   expected: 6,
 };
-
 const t14 = {
   input: `nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg`,
   expected: 10,
 };
-
 const t15 = {
   input: `zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw`,
   expected: 11,
@@ -30,10 +28,8 @@ function parseInput(rawInput: string) {
 }
 
 function getUniqNPos(input: string[], offset: number): number | undefined {
-  for (var i = 0; i < input.length - offset; i++) {
-    const set = new Set<string>();
-    for (var j = 0; j < offset; j++) set.add(input[i + j]);
-
+  for (let i = 0; i < input.length - offset; i++) {
+    const set = new Set(input.slice(i, i +offset));
     if (set.size === offset) return i + offset;
   }
 }

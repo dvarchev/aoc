@@ -137,16 +137,16 @@
     },
     {
       "part1": {
-        "solved": false,
-        "result": null,
+        "solved": true,
+        "result": "14320",
         "attempts": [],
-        "time": null
+        "time": 1.22685
       },
       "part2": {
-        "solved": false,
-        "result": null,
+        "solved": true,
+        "result": "PCPBKAPJ",
         "attempts": [],
-        "time": null
+        "time": 0.315605
       }
     },
     {

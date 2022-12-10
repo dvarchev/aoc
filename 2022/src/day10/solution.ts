@@ -1,5 +1,5 @@
 import _ from "lodash";
-import { cl, OCR_LETTERS, readFile } from "../utils/index.js";
+import { cl, pictureToLetters, readFile } from "../utils/index.js";
 
 const t1 = {
   input: readFile("./test1.txt", import.meta.url),
@@ -61,16 +61,7 @@ export function solvePart2(rawInput: string) {
     }),
   );
 
-  const byLetters = pixels.map((x) =>
-    _.chunk(x, 5)
-      .map((c) => c.slice(0, 4))
-      .map((c) => c.join("")),
-  );
-  const lettersTexts = byLetters[0].map((c, i) =>
-    byLetters.map((ll) => ll[i]).join("\n"),
-  );
-
-  const result = lettersTexts.map((l) => OCR_LETTERS[l]).join("");
+  const result = pictureToLetters(pixels);
   return result;
 }
 export const tests = [[t1], [t2]];

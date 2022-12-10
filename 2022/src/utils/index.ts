@@ -43,3 +43,17 @@ export const charMap: { [key: string]: number } = {};
     obj[ch] = code;
     return obj;
   }, charMap);
+
+export function pictureToLetters(pixels: ("#" | ".")[][]) {
+  const byLetters = pixels.map((x) =>
+    _.chunk(x, 5)
+      .map((c) => c.slice(0, 4))
+      .map((c) => c.join("")),
+  );
+  const lettersTexts = byLetters[0].map((_c, i) =>
+    byLetters.map((ll) => ll[i]).join("\n"),
+  );
+
+  const result = lettersTexts.map((l) => OCR_LETTERS[l]).join("");
+  return result;
+}

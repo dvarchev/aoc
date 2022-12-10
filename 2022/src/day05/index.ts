@@ -1,5 +1,5 @@
 import run from "aocrunner";
-import {solvePart1, solvePart2, onlyTests, tests} from './solution.js'
+import { solvePart1, solvePart2, onlyTests, tests } from "./solution.js";
 run({
   part1: {
     tests: tests[0],

@@ -1,7 +1,7 @@
 import _ from "lodash";
-import { cl } from "../utils/index.js"
+import { cl } from "../utils/index.js";
 
-const t1 =  {
+const t1 = {
   input: `1000
 2000
 3000
@@ -28,9 +28,7 @@ function parseInput(rawInput: string) {
 
 function getSums(rawInput: string): number[] {
   const elves = parseInput(rawInput);
-  return elves
-    .map((e) => _.sum(e))
-    .sort((a, b) => b - a);
+  return elves.map((e) => _.sum(e)).sort((a, b) => b - a);
 }
 
 export function solvePart1(rawInput: string) {

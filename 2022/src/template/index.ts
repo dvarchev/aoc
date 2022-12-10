@@ -1,42 +1,14 @@
 import run from "aocrunner";
-import _ from "lodash";
-import { cl } from "../utils/index.js"
-
-const t1 =  {
-    input: ``,
-    expected: "",
-};
-
-function parseInput(rawInput: string) {
-  return rawInput;
-}
-
-function solvePart1(rawInput: string) {
-  const input = parseInput(rawInput);
-
-  return;
-};
-
-const t2 =  {
-  ...t1,
-  expected: "",
-};
-
-function solvePart2(rawInput: string) {
-  const input = parseInput(rawInput);
-
-  return;
-};
-
+import {solvePart1, solvePart2, onlyTests, tests} from './solution.js'
 run({
   part1: {
-    tests: [t1],
+    tests: tests[0],
     solution: solvePart1,
   },
   part2: {
-    tests: [t2],
+    tests: tests[1],
     solution: solvePart2,
   },
   trimTestInputs: false,
-  onlyTests: false,
+  onlyTests,
 });

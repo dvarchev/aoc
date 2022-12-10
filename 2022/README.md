@@ -69,72 +69,72 @@ yarn start 1
 
 ```
 Day 01
-Time part 1: 0.449ms
-Time part 2: 1.358ms
-Both parts: 1.807ms
+Time part 1: 0.462ms
+Time part 2: 1.679ms
+Both parts: 2.142ms
 ```
 
 ```
 Day 02
-Time part 1: 2.381ms
-Time part 2: 1.324ms
-Both parts: 3.706ms
+Time part 1: 9.526ms
+Time part 2: 2.915ms
+Both parts: 12.441ms
 ```
 
 ```
 Day 03
-Time part 1: 3.746ms
-Time part 2: 2.104ms
-Both parts: 5.85ms
+Time part 1: 4.514ms
+Time part 2: 1.371ms
+Both parts: 5.885ms
 ```
 
 ```
 Day 04
-Time part 1: 1.527ms
-Time part 2: 1.918ms
-Both parts: 3.445ms
+Time part 1: 1.788ms
+Time part 2: 2.248ms
+Both parts: 4.036ms
 ```
 
 ```
 Day 05
-Time part 1: 0.864ms
-Time part 2: 1.075ms
-Both parts: 1.939ms
+Time part 1: 2.334ms
+Time part 2: 0.844ms
+Both parts: 3.178ms
 ```
 
 ```
 Day 06
-Time part 1: 0.684ms
-Time part 2: 1.969ms
-Both parts: 2.653ms
+Time part 1: 0.803ms
+Time part 2: 2.341ms
+Both parts: 3.143ms
 ```
 
 ```
 Day 07
-Time part 1: 3.407ms
-Time part 2: 2.617ms
-Both parts: 6.024ms
+Time part 1: 3.202ms
+Time part 2: 1.446ms
+Both parts: 4.648ms
 ```
 
 ```
 Day 08
-Time part 1: 17.944ms
-Time part 2: 14.128ms
-Both parts: 32.071ms
+Time part 1: 20.089ms
+Time part 2: 14.836ms
+Both parts: 34.925ms
 ```
 
 ```
 Day 09
-Time part 1: 13.678ms
-Time part 2: 8.913ms
-Both parts: 22.591ms
+Time part 1: 15.232ms
+Time part 2: 8.88ms
+Both parts: 24.111ms
 ```
 
 ```
 Day 10
-Time part 1: 0.127ms
-Time part 2: 1.256ms
-Both parts: 1.383ms
+Time part 1: 1.227ms
+Time part 2: 0.316ms
+Both parts: 1.542ms
 ```
 
 ```
@@ -244,7 +244,7 @@ Both parts: -
 
 ```
 Total stars: 20/50
-Total time: 81.469ms
+Total time: 96.051ms
 ```
 
 <!--/RESULTS-->

@@ -1,152 +1,146 @@
 {
   "version": 1,
-  "year": 2022,
+  "year": 2021,
   "language": "ts",
   "days": [
     {
       "part1": {
         "solved": true,
-        "result": "67658",
+        "result": "1665",
         "attempts": [],
-        "time": 0.462396
+        "time": 0.308845
       },
       "part2": {
         "solved": true,
-        "result": "200158",
+        "result": "1702",
         "attempts": [],
-        "time": 1.679127
+        "time": 0.475723
       }
     },
     {
       "part1": {
         "solved": true,
-        "result": "11449",
+        "result": "1804520",
         "attempts": [],
-        "time": 9.526427
+        "time": 1.539587
       },
       "part2": {
         "solved": true,
-        "result": "13187",
+        "result": "1971095320",
         "attempts": [],
-        "time": 2.914742
+        "time": 1.596438
       }
     },
     {
       "part1": {
-        "solved": true,
-        "result": "7848",
+        "solved": false,
+        "result": null,
         "attempts": [],
-        "time": 4.513846
+        "time": null
       },
       "part2": {
-        "solved": true,
-        "result": "2616",
+        "solved": false,
+        "result": null,
         "attempts": [],
-        "time": 1.370887
+        "time": null
       }
     },
     {
       "part1": {
-        "solved": true,
-        "result": "542",
+        "solved": false,
+        "result": null,
         "attempts": [],
-        "time": 1.936855
+        "time": null
       },
       "part2": {
-        "solved": true,
-        "result": "900",
+        "solved": false,
+        "result": null,
         "attempts": [],
-        "time": 2.719026
+        "time": null
       }
     },
     {
       "part1": {
-        "solved": true,
-        "result": "WHTLRMZRC",
+        "solved": false,
+        "result": null,
         "attempts": [],
-        "time": 2.333589
+        "time": null
       },
       "part2": {
-        "solved": true,
-        "result": "GMPMLWNMG",
+        "solved": false,
+        "result": null,
         "attempts": [],
-        "time": 0.844122
+        "time": null
       }
     },
     {
       "part1": {
-        "solved": true,
-        "result": "1850",
+        "solved": false,
+        "result": null,
         "attempts": [],
-        "time": 0.802728
+        "time": null
       },
       "part2": {
-        "solved": true,
-        "result": "2823",
+        "solved": false,
+        "result": null,
         "attempts": [],
-        "time": 2.340568
+        "time": null
       }
     },
     {
       "part1": {
-        "solved": true,
-        "result": "1845346",
-        "attempts": [
-          "98178"
-        ],
-        "time": 3.202034
+        "solved": false,
+        "result": null,
+        "attempts": [],
+        "time": null
       },
       "part2": {
-        "solved": true,
-        "result": "3636703",
+        "solved": false,
+        "result": null,
         "attempts": [],
-        "time": 1.445758
+        "time": null
       }
     },
     {
       "part1": {
-        "solved": true,
-        "result": "1809",
+        "solved": false,
+        "result": null,
         "attempts": [],
-        "time": 20.08911
+        "time": null
       },
       "part2": {
-        "solved": true,
-        "result": "479400",
-        "attempts": [
-          "2548"
-        ],
-        "time": 14.835583
+        "solved": false,
+        "result": null,
+        "attempts": [],
+        "time": null
       }
     },
     {
       "part1": {
-        "solved": true,
-        "result": "6057",
+        "solved": false,
+        "result": null,
         "attempts": [],
-        "time": 15.231507
+        "time": null
       },
       "part2": {
-        "solved": true,
-        "result": "2514",
-        "attempts": [
-          "2554"
-        ],
-        "time": 8.879837
+        "solved": false,
+        "result": null,
+        "attempts": [],
+        "time": null
       }
     },
     {
       "part1": {
-        "solved": true,
-        "result": "14320",
+        "solved": false,
+        "result": null,
         "attempts": [],
-        "time": 1.22685
+        "time": null
       },
       "part2": {
-        "solved": true,
-        "result": "PCPBKAPJ",
+        "solved": false,
+        "result": null,
         "attempts": [],
-        "time": 0.315605
+        "time": null
       }
     },
     {

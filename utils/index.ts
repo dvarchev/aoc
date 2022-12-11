@@ -5,10 +5,7 @@ import { fileURLToPath } from "node:url";
 export const cl = console.log;
 
 export function readFile(path: string, currentFile: string): string {
-  const filePath = fileURLToPath(new URL(path, currentFile)).replace(
-    "/dist/",
-    "/src/",
-  );
+  const filePath = fileURLToPath(new URL(path, currentFile)).replace("/dist/", "/src/");
   return fs.readFileSync(filePath, { encoding: "utf8" });
 }
 
@@ -34,10 +31,7 @@ export const OCR_LETTERS: any = {
 };
 
 export const charMap: { [key: string]: number } = {};
-[
-  ..._.times(26, (i) => "a".charCodeAt(0) + i),
-  ..._.times(26, (i) => "A".charCodeAt(0) + i),
-]
+[..._.times(26, i => "a".charCodeAt(0) + i), ..._.times(26, i => "A".charCodeAt(0) + i)]
   .map((c): [string, number] => [String.fromCharCode(c), c])
   .reduce((obj, [ch, code]) => {
     obj[ch] = code;
@@ -45,15 +39,13 @@ export const charMap: { [key: string]: number } = {};
   }, charMap);
 
 export function pictureToLetters(pixels: ("#" | ".")[][]) {
-  const byLetters = pixels.map((x) =>
+  const byLetters = pixels.map(x =>
     _.chunk(x, 5)
-      .map((c) => c.slice(0, 4))
-      .map((c) => c.join("")),
+      .map(c => c.slice(0, 4))
+      .map(c => c.join("")),
   );
-  const lettersTexts = byLetters[0].map((_c, i) =>
-    byLetters.map((ll) => ll[i]).join("\n"),
-  );
+  const lettersTexts = byLetters[0].map((_c, i) => byLetters.map(ll => ll[i]).join("\n"));
 
-  const result = lettersTexts.map((l) => OCR_LETTERS[l]).join("");
+  const result = lettersTexts.map(l => OCR_LETTERS[l]).join("");
   return result;
 }

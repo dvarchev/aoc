@@ -2,6 +2,7 @@ import fs from "fs";
 import _ from "lodash";
 import { fileURLToPath } from "node:url";
 
+export * from "./graph.js";
 export const cl = console.log;
 
 export function readFile(path: string, currentFile: string): string {

@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2020",
+    "target": "es2021",
     "module": "es2020",
     "removeComments": true,
     "declaration": true,
@@ -10,7 +10,8 @@
     "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
-    "importHelpers": true
+    "importHelpers": true,
+    "typeRoots": ["./node_modules/@types", "./src/types"]
   },
   "include": [
     "src"

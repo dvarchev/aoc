@@ -35,7 +35,7 @@ function isWinningCard(card: number[][]): any {
     const cols = card[0].length;
     return (
         _.some(card, (l) => _.every(l, (n) => n === -1)) ||
-        _.some(_.times(cols), (c) => _.every(card, (l) => l[c] === -1))
+        _.some(Array.times(cols), (c) => _.every(card, (l) => l[c] === -1))
     );
 }
 function getNonNegativeSum(bingoCard: number[][]) {

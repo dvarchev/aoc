@@ -1,9 +1,21 @@
 import fs from "fs";
-import _ from "lodash";
 import { fileURLToPath } from "node:url";
+import { polifill } from "./polifill.js";
 
 export * from "./graph.js";
+export * from "./point.js";
 export const cl = console.log;
+export const cmc = (lines: number = -1, columns: number = 0) => process.stdout.moveCursor(columns, lines);
+
+polifill();
+
+export function sleep(milliseconds: number): void {
+  const date = Date.now();
+  let currentDate: number;
+  do {
+    currentDate = Date.now();
+  } while (currentDate - date < milliseconds);
+}
 
 export function readFile(path: string, currentFile: string): string {
   const filePath = fileURLToPath(new URL(path, currentFile)).replace("/dist/", "/src/");
@@ -32,7 +44,7 @@ export const OCR_LETTERS: any = {
 };
 
 export const charMap: { [key: string]: number } = {};
-[..._.times(26, i => "a".charCodeAt(0) + i), ..._.times(26, i => "A".charCodeAt(0) + i)]
+[...Array.times(26, i => "a".charCodeAt(0) + i), ...Array.times(26, i => "A".charCodeAt(0) + i)]
   .map((c): [string, number] => [String.fromCharCode(c), c])
   .reduce((obj, [ch, code]) => {
     obj[ch] = code;
@@ -41,7 +53,8 @@ export const charMap: { [key: string]: number } = {};
 
 export function pictureToLetters(pixels: ("#" | ".")[][]) {
   const byLetters = pixels.map(x =>
-    _.chunk(x, 5)
+    x
+      .chunk(5)
       .map(c => c.slice(0, 4))
       .map(c => c.join("")),
   );
@@ -49,4 +62,45 @@ export function pictureToLetters(pixels: ("#" | ".")[][]) {
 
   const result = lettersTexts.map(l => OCR_LETTERS[l]).join("");
   return result;
+}
+
+export function clm(
+  mat: number[][],
+  replacements?: string,
+  startParam?: [number, number],
+  endParam?: [number, number],
+) {
+  const start = startParam || [0, 0];
+  const end = endParam || [mat.length, mat[0].length];
+  const mapChar = (n: number) => (replacements && replacements[n]) || n;
+  const toPrint = mat.slice(start[0], end[0]).map(l => l.slice(start[1], end[1]));
+  cl(toPrint.map(l => l.map(n => mapChar(n)).join("")).join("\n"));
+}
+
+export function matrix(linesValue: number, columnsValue: number, defaultVal: number = 0) {
+  return Array.times(linesValue, () => [...Array.times(columnsValue, () => defaultVal)]);
+}
+
+export function iterateMat(mat: number[][], visit: (n: number, l: number, c: number) => void) {
+  for (let i = 0; i < mat.length; i++) {
+    for (let j = 0; j < mat[i].length; j++) {
+      visit(mat[i][j], i, j);
+    }
+  }
+}
+
+export function subMat(
+  mat: number[][],
+  [sx, sy]: [number, number] = [0, 0],
+  width?: number,
+  height?: number,
+): number[][] {
+  height = height === undefined ? mat.length : height;
+  width = width === undefined ? mat[0].length : width;
+  const res = matrix(height, width);
+
+  for (let i = 0; i < height; i++) {
+    for (let j = 0; j < width; j++) res[i][j] = mat[sx + i][sy + j];
+  }
+  return res;
 }

@@ -1,6 +1,6 @@
 import _ from "lodash";
 import { cl } from "../utils/index.js";
-
+cl();
 const t1 = {
     input: `00100
 11110
@@ -29,11 +29,10 @@ function getCommonBitAt(input: number[][], pos: number, bit: number = 1) {
 export function solvePart1(rawInput: string) {
     const input = parseInput(rawInput);
     const nBits = input[0].length;
-    const a = _.times(nBits).map((i) => getCommonBitAt(input, i));
+    const a = Array.times(nBits).map((i) => getCommonBitAt(input, i));
     const b = a.map((b) => (b ? 0 : 1));
     return [a, b].map((n) => parseInt(n.join(""), 2)).reduce((a, b) => a * b);
 }
-
 const t2 = {
     ...t1,
     expected: 230,

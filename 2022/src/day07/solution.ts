@@ -90,7 +90,7 @@ export function solvePart2(rawInput: string) {
   const allDirs = parseInput(rawInput);
   const total = 70000000;
   const sdirs = allDirs.sort((d1, d2) => d1.getSize() - d2.getSize());
-  const used = _.last(sdirs)!.getSize();
+  const used = sdirs.last()!.getSize();
   const free = total - used;
   const needed = 30000000 - free;
   const dir = sdirs.find(d => d.getSize() > needed);

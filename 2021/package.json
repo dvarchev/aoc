@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "yarn setup && aocrunner day",
-    "setup": "rm -rf src/template src/utils && cp -r ../utils src/utils && cp -r ../template src/template",
+    "setup": "rm -rf src/template src/utils src/types && cp -r ../utils src/utils && cp -r ../template src/template && cp -r ../types src/types",
     "build": "aocrunner build",
     "format": "prettier -w src",
     "update:readme": "aocrunner update:readme"

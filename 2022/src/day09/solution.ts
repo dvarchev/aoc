@@ -60,7 +60,7 @@ function moveRope(rope: [number, number][], instruction: [string, number]): [[nu
   const tailPositions: [number, number][] = [];
   while (nMoves > 0) {
     rope = move(rope, modeDirection);
-    tailPositions.push(_.last(rope)!);
+    tailPositions.push(rope.last()!);
     nMoves--;
   }
   return [tailPositions, rope];
@@ -82,7 +82,7 @@ function getTailPositions(moveInstructions: [string, number][], hc: [number, num
 
 export function solvePart1(rawInput: string) {
   const moves = parseInput(rawInput);
-  let hc: [number, number][] = _.times(2, () => [0, 0]);
+  let hc: [number, number][] = Array.times(2, () => [0, 0]);
 
   return getTailPositions(moves, hc);
 }
@@ -112,7 +112,7 @@ U 20`,
 
 export function solvePart2(rawInput: string) {
   const moves = parseInput(rawInput);
-  let hc: [number, number][] = _.times(10, () => [0, 0]);
+  let hc: [number, number][] = Array.times(10, () => [0, 0]);
 
   return getTailPositions(moves, hc);
 }

@@ -23,7 +23,7 @@ function parseInput(rawInput: string): {
 
   const indexes = Array.from(state[0].matchAll(/\d/g)).map(x => x.index!);
   const count = indexes.length;
-  const crates = _.times<string[]>(count, () => []);
+  const crates = Array.times<string[]>(count, () => []);
   state.slice(1).forEach(sl => indexes.forEach((i, j) => sl[i] !== " " && crates[j].push(sl[i])));
 
   const moves = moveLines

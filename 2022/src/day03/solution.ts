@@ -21,7 +21,7 @@ function parseInput(rawInput: string) {
 const toCode = (cc: number) => (cc < ac ? cc - Ac + 27 : cc - ac + 1);
 
 export function solvePart1(rawInput: string) {
-  const input = parseInput(rawInput).map(l => _.chunk(l, l.length / 2));
+  const input = parseInput(rawInput).map(l => l.chunk(l.length / 2));
   return _(input)
     .map(([c1, c2]) => _.find(c1, (c: string) => _.includes(c2, c))!.charCodeAt(0))
     .map(toCode)

@@ -49,7 +49,7 @@ const t2 = {
 
 export function solvePart2(rawInput: string) {
   const input = parseInput(rawInput);
-  const pixelsIndexes: number[][] = _.chunk(_.times(240), 40) as number[][];
+  const pixelsIndexes: number[][] = Array.times(240).chunk(40) as number[][];
   const registerByCycles = getXByCycle(input, 240);
 
   const pixels = pixelsIndexes.map(pRow =>

@@ -75,7 +75,7 @@ export function solvePart2(rawInput: string) {
   const { distances } = graph.dijkstra(toName(...end));
 
   const aDistances = aNodes.map(z => distances[z]);
-  return _.min(aDistances);
+  return aDistances.min();
 }
 
 export const tests = [[t1], [t2]];

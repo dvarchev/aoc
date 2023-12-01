@@ -63,3 +63,45 @@ export class Graph {
     return closestNode;
   }
 }
+
+function search(
+  startNode: any,
+  getNeighbours: (node: any, depth: number) => any[],
+  visitNode: (node: any, depth: number) => void,
+  getNextNode: (items: any[]) => any,
+  maxDepth: number,
+) {
+  const visited: { [key: string]: boolean } = {};
+  let items: [any, number][] = [[startNode, 0]];
+  while (items.length && items[0][1] <= maxDepth) {
+    const [node, depth] = getNextNode(items)!;
+    const key = node.toString();
+    if (visited[key]) continue;
+
+    visited[key] = true;
+    visitNode(node, depth);
+    if(depth < maxDepth){
+      const neighbours = getNeighbours(node, depth + 1) || [];
+      items.push(...neighbours.map(n => [n, depth + 1] as [any, number]));
+    }
+  }
+}
+
+
+export function dfs(
+  startNode: any,
+  getNeighbours: (node: any, depth: number) => any[],
+  visitNode: (node: any, depth: number) => void,
+  maxDepth: number = Infinity,
+) {
+  search(startNode,getNeighbours, visitNode, (items) => items.pop(), maxDepth)
+}
+
+export function bfs(
+  startNode: any,
+  getNeighbours: (node: any, depth: number) => any[],
+  visitNode: (node: any, depth: number) => void,
+  maxDepth: number = Infinity,
+) {
+  search(startNode,getNeighbours, visitNode, (items) => items.shift(), maxDepth)
+}

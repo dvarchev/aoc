@@ -1,0 +1,10 @@
+{
+    "files.exclude": {
+        "**/dist": true,
+        "**/node_modules": true,
+        "**/src/utils": true,
+        "**/src/types": true,
+        "**/src/template": true,
+        "**/src/tsconfig.json": true
+    }
+}

@@ -1,4 +1,4 @@
-export function polifill() {
+export function polyfill() {
   if (!Array.times) {
     Array.times = function <T>(count: number, getValue?: (index: number) => T): T[] {
       const result = new Array(count);
@@ -34,15 +34,15 @@ export function polifill() {
       return JSON.stringify(this);
     };
   }
+
   if (!Array.prototype.last) {
     Array.prototype.last = function (): string {
       return this.at(-1);
     };
   }
 
-
   if (!Array.prototype.unique) {
-    Array.prototype.unique = function<T>(): T[] {
+    Array.prototype.unique = function <T>(): T[] {
       return this.filter((v, i, a) => a.indexOf(v) === i);
     };
   }

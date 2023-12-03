@@ -1,13 +1,13 @@
 import fs from "fs";
 import { fileURLToPath } from "node:url";
-import { polifill } from "./polifill.js";
+import { polyfill } from "./polyfill.js";
 
 export * from "./graph.js";
 export * from "./point.js";
 export const cl = console.log;
 export const cmc = (lines: number = -1, columns: number = 0) => process.stdout.moveCursor(columns, lines);
 
-polifill();
+polyfill();
 
 export function sleep(milliseconds: number): void {
   const date = Date.now();
@@ -51,6 +51,15 @@ export const charMap: { [key: string]: number } = {};
     return obj;
   }, charMap);
 
+export function isDigit(symbol: string | undefined): boolean {
+  if (symbol === undefined || symbol.length !== 1) {
+      return false;
+  }
+  
+  const charCode = symbol.charCodeAt(0);
+  return charCode >= 48 && charCode <= 57;
+}
+
 export function pictureToLetters(pixels: ("#" | ".")[][]) {
   const byLetters = pixels.map(x =>
     x
@@ -77,11 +86,18 @@ export function clm(
   cl(toPrint.map(l => l.map(n => mapChar(n)).join("")).join("\n"));
 }
 
-export function matrix(linesValue: number, columnsValue: number, defaultVal: number = 0) {
+export function matrix<T>(linesValue: number, columnsValue: number, defaultVal: T): T[][] {
   return Array.times(linesValue, () => [...Array.times(columnsValue, () => defaultVal)]);
 }
+export function matrixN(linesValue: number, columnsValue: number, defaultVal: number = 0): number[][] {
+  return matrix(linesValue, columnsValue, defaultVal);
+}
 
-export function iterateMat(mat: number[][], visit: (n: number, l: number, c: number) => void) {
+export function matrixFromString(input: string) {
+  return input.split("\n").map(l => l.split(""));
+}
+
+export function iterateMat<T>(mat: T[][], visit: (n: T, l: number, c: number) => void) {
   for (let i = 0; i < mat.length; i++) {
     for (let j = 0; j < mat[i].length; j++) {
       visit(mat[i][j], i, j);
@@ -97,10 +113,24 @@ export function subMat(
 ): number[][] {
   height = height === undefined ? mat.length : height;
   width = width === undefined ? mat[0].length : width;
-  const res = matrix(height, width);
+  const res = matrixN(height, width);
 
   for (let i = 0; i < height; i++) {
     for (let j = 0; j < width; j++) res[i][j] = mat[sx + i][sy + j];
   }
   return res;
+}
+
+export function getNeighbours<T>(mat: T[][], i: number, j: number): [T, number, number][] {
+  const result: [T, number, number][] = [];
+  for (let ci = i - 1; ci <= i + 1; ci++) {
+    for (let cj = j - 1; cj <= j + 1; cj++) {
+      if (isWithinMatrix(mat, ci, cj) && (ci !== i || cj !== j)) result.push([mat[ci][cj], ci, cj]);
+    }
+  }
+  return result;
+}
+
+export function isWithinMatrix<T>(mat: T[][], i: number, j: number) {
+  return i >= 0 && i< mat.length && j >= 0 && j < mat[0].length;
 }

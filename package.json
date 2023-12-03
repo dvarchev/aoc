@@ -1,0 +1,25 @@
+{
+  "name": "aoc-root",
+  "version": "1.0.0",
+  "description": "Advent of Code root",
+  "type": "module",
+  "scripts": {
+  },
+  "keywords": [
+    "aoc"
+  ],
+  "author": "Deyan Varchev",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/lodash": "^4.14.191",
+    "@types/node": "^16.11.6",
+    "aocrunner": "^1.9.6",
+    "prettier": "^2.8.0"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
+  "engines": {
+    "node": ">=16.13.0"
+  }
+}

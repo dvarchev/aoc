@@ -1,4 +1,4 @@
-import { cl, clm, cmc, iterateMat, matrix, Point, sleep } from "../utils/index.js";
+import { cl, clm, cmc, iterateMat, matrix, Point } from "../utils/index.js";
 
 const t1 = {
   input: `#.######

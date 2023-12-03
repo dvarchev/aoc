@@ -1,4 +1,4 @@
-import _, { sum } from "lodash";
+
 import { cl } from "../utils/index.js";
 
 const t1 = {
@@ -24,7 +24,7 @@ export function solvePart1(rawInput: string) {
     
     return (+l[firstIndex])*10 + (+l[lastIndex])
   })
-  return _.sum(digitsArr);
+  return digitsArr.sum();
 }
 
 const t2 = {
@@ -56,7 +56,7 @@ export function solvePart2(rawInput: string) {
     
     return fd*10 + ld
   })
-  return _.sum(digitsArr);
+  return digitsArr.sum();
 }
 
 export const tests = [[t1], [t2]];

@@ -1,4 +1,3 @@
-import _ from "lodash";
 import { cl, getNeighbours, isDigit, iterateMat, matrixFromString } from "../utils/index.js";
 
 const t1 = {

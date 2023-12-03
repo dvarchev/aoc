@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "yarn setup && aocrunner day",
-    "setup": "rm -rf src/template src/utils src/types src/tsconfig.json && cp -r ../utils src/utils && cp -r ../template src/template && cp -r ../types src/types && cp -r ../tsconfig.json src/tsconfig.json",
+    "setup": "rm -rf src/template src/utils src/types src/tsconfig.json && cp -r ../utils src/utils && cp -r ../template src/template && cp -r ../types src/types && cp -r ../tsconfig.json tsconfig.json",
     "build": "aocrunner build",
     "format": "prettier -w src",
     "update:readme": "aocrunner update:readme"

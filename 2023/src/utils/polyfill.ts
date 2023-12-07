@@ -62,4 +62,10 @@ export function polyfill() {
       return this.reduce((a, b) => a + b, 0);
     };
   }
+
+  if (!Array.prototype.nSort) {
+    Array.prototype.nSort = function () {
+      return this.sort((a, b) => a - b);
+    };
+  }
 }

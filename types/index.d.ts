@@ -1,4 +1,4 @@
-export {}
+export {};
 declare global {
   // Extending the Array constructor
   interface ArrayConstructor {
@@ -57,6 +57,12 @@ declare global {
      * @returns The sum of all the numbers.
      */
     sum(): number;
+
+    /**
+     * Sort method for arrays of numbers.
+     * Sorts the array in ascending order.
+     */
+    nSort(): number[];
   }
 
   // Extending the String prototype

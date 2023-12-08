@@ -66,6 +66,9 @@ declare global {
   }
 
   // Extending the String prototype
+  /**
+   * Represents the global String object.
+   */
   interface String {
     /**
      * Splits the string into chunks of the specified size.
@@ -73,5 +76,17 @@ declare global {
      * @returns An array of string chunks.
      */
     chunk(chunkSize: number): string[];
+
+    /**
+     * Converts a string to an array of characters.
+     * @returns An array of characters.
+     */
+    toArray(): string[];
+
+    /**
+     * Splits the string into an array of lines.
+     * @returns An array of lines.
+     */
+    lines(): string[];
   }
 }

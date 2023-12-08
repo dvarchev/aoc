@@ -80,13 +80,12 @@ function search(
 
     visited[key] = true;
     visitNode(node, depth);
-    if(depth < maxDepth){
+    if (depth < maxDepth) {
       const neighbours = getNeighbours(node, depth + 1) || [];
       items.push(...neighbours.map(n => [n, depth + 1] as [any, number]));
     }
   }
 }
-
 
 export function dfs(
   startNode: any,
@@ -94,7 +93,7 @@ export function dfs(
   visitNode: (node: any, depth: number) => void,
   maxDepth: number = Infinity,
 ) {
-  search(startNode,getNeighbours, visitNode, (items) => items.pop(), maxDepth)
+  search(startNode, getNeighbours, visitNode, items => items.pop(), maxDepth);
 }
 
 export function bfs(
@@ -103,5 +102,5 @@ export function bfs(
   visitNode: (node: any, depth: number) => void,
   maxDepth: number = Infinity,
 ) {
-  search(startNode,getNeighbours, visitNode, (items) => items.shift(), maxDepth)
+  search(startNode, getNeighbours, visitNode, items => items.shift(), maxDepth);
 }

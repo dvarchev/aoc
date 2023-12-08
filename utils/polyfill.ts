@@ -28,6 +28,16 @@ export function polyfill() {
       return result;
     };
   }
+  if (!String.prototype.toArray) {
+    String.prototype.toArray = function (): string[] {
+      return this.split("");
+    };
+  }
+  if (!String.prototype.lines) {
+    String.prototype.lines = function (): string[] {
+      return this.split("\n");
+    };
+  }
 
   if (!Array.prototype.toJson) {
     Array.prototype.toJson = function (): string {

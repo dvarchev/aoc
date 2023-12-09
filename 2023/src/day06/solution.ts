@@ -47,4 +47,3 @@ export const tests = [[t1], [t2]];
 export const config: Config = {
   onlyTests: false,
 };
-

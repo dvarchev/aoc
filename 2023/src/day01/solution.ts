@@ -1,59 +1,49 @@
-import { cl, Config } from "aoc-utils";
+import { cl, Config, isDigit } from "aoc-utils";
 
 const t1 = {
   input: `1abc2
-  pqr3stu8vwx
-  a1b2c3d4e5f
-  treb7uchet`,
+pqr3stu8vwx
+a1b2c3d4e5f
+treb7uchet`,
   expected: 142,
 };
 
 function parseInput(rawInput: string) {
-  return rawInput.split("\n").filter(l => l.length > 0);
-  // .map(l => l.split(''));
+  return rawInput.lines().filter(l => l.length > 0);
 }
-const digits = "123456789".split("");
-const digitNames = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
+const digits = "123456789".toArray();
+const digitNames = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
 
 export function solvePart1(rawInput: string) {
   const input = parseInput(rawInput);
   const digitsArr = input.map(l => {
-    const firstIndex = digits
-      .map(d => l.indexOf(d))
-      .filter(n => n !== -1)
-      .min();
-    const lastIndex = digits
-      .map(d => l.lastIndexOf(d))
-      .filter(n => n !== -1)
-      .max();
+    const la = l.toArray();
+    const firstDigit = +la.find(isDigit)!;
+    const lastDigit = +la.reverse().find(isDigit)!;
 
-    return +l[firstIndex] * 10 + +l[lastIndex];
+    return firstDigit * 10 + lastDigit;
   });
   return digitsArr.sum();
 }
 
 const t2 = {
   input: `two1nine
-  eightwothree
-  abcone2threexyz
-  xtwone3four
-  4nineeightseven2
-  zoneight234
-  7pqrstsixteen`,
+eightwothree
+abcone2threexyz
+xtwone3four
+4nineeightseven2
+zoneight234
+7pqrstsixteen`,
   expected: 281,
 };
 
 export function solvePart2(rawInput: string) {
   const input = parseInput(rawInput);
   const digitsArr = input.map(l => {
-    const firstIndexD = digits
-      .map(d => l.indexOf(d))
-      .filter(n => n !== -1)
-      .min();
-    const lastIndexD = digits
-      .map(d => l.lastIndexOf(d))
-      .filter(n => n !== -1)
-      .max();
+    const la = l.toArray();
+    const lar = [...la].reverse();
+    const firstDigitI = la.findIndex(isDigit);
+    const lastDigitI = lar.length - lar.findIndex(isDigit) - 1;
 
     const firstIndexL = digitNames
       .map(d => l.indexOf(d))
@@ -64,11 +54,12 @@ export function solvePart2(rawInput: string) {
       .filter(n => n !== -1)
       .max();
 
-    let fd = +l[firstIndexD];
-    let ld = +l[lastIndexD];
-    if (firstIndexD > firstIndexL) fd = digitNames.findIndex(dn => l.indexOf(dn) == firstIndexL) + 1;
+    let fd = +la[firstDigitI];
+    let ld = +la[lastDigitI];
+    if (firstDigitI > firstIndexL || firstDigitI === -1) fd = digitNames.findIndex(dn => l.indexOf(dn) == firstIndexL);
 
-    if (lastIndexD < lastIndexL) ld = digitNames.findIndex(dn => l.indexOf(dn, lastIndexL) == lastIndexL) + 1;
+    if (lastDigitI < lastIndexL || lastDigitI === la.length)
+      ld = digitNames.findIndex(dn => l.indexOf(dn, lastIndexL) == lastIndexL);
 
     return fd * 10 + ld;
   });

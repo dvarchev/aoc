@@ -71,7 +71,7 @@ const hsf: number[] = [1, 3, 3, 5, 6, 6, 6];
 
 export function solvePart2(rawInput: string) {
   return solvePart1(rawInput, cards2, (h: string): number => {
-    const j = h.toArray().filter(c => c === "J").length;
+    const j = h.toArray().count(c => c === "J");
     const hs = handScore(h);
     return j ? (hs == 2 ? hsf[hs] + j : hsf[hs]) : hs;
   });

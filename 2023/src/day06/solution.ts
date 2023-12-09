@@ -8,7 +8,7 @@ Distance:  9  40  200`,
 
 // f(x) = -x^2 + tx - d
 function parseInput(rawInput: string): number[][] {
-  return rawInput.split("\n").map(l =>
+  return rawInput.lines().map(l =>
     l
       .split(":")[1]
       .split(" ")
@@ -40,7 +40,7 @@ Distance:  940200`,
 };
 
 export function solvePart2(rawInput: string) {
-  return solvePart1(rawInput.split(" ").join(""));
+  return solvePart1(rawInput.replaceAll(" ",""));
 }
 
 export const tests = [[t1], [t2]];

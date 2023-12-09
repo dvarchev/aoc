@@ -16,6 +16,7 @@ export class Point {
    */
   static fromArray(arr: number[]): Point {
     const [x, y] = arr;
+    
     return new Point(x, y);
   }
 

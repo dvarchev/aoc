@@ -17,7 +17,8 @@
     "prettier": "^2.8.0"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "aoc-utils": "./aoc-utils"
   },
   "engines": {
     "node": ">=16.13.0"

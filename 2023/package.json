@@ -4,8 +4,8 @@
   "description": "Advent of Code 2023 - solutions",
   "type": "module",
   "scripts": {
-    "start": "yarn setup && aocrunner day",
-    "setup": "rm -rf src/template src/utils src/types tsconfig.json && cp -r ../utils src/utils && cp -r ../template src/template && cp -r ../types src/types && cp -r ../tsconfig.json tsconfig.json",
+    "start": "aocrunner day",
+    "setup": "rm -rf src/template tsconfig.json  && cp -r ../template src/template && cp -r ../tsconfig.json.template tsconfig.json",
     "build": "aocrunner build",
     "format": "prettier -w src",
     "update:readme": "aocrunner update:readme"
@@ -22,9 +22,9 @@
     "prettier": "^2.8.0"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "aoc-utils": "../utils"
   },
   "engines": {
-    "node": ">=16.13.0"
+    "node": ">=18.13.0"
   }
 }

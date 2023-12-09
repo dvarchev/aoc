@@ -1,7 +1,9 @@
 import fs from "fs";
 import { fileURLToPath } from "node:url";
-import { polyfill } from "./polyfill.js";
-
+import { polyfill } from "./polyfill";
+import run from "aocrunner";
+export { run };
+export * from "./polyfill.js";
 export * from "./graph.js";
 export * from "./point.js";
 export const cl = console.log;
@@ -53,9 +55,9 @@ export const charMap: { [key: string]: number } = {};
 
 export function isDigit(symbol: string | undefined): boolean {
   if (symbol === undefined || symbol.length !== 1) {
-      return false;
+    return false;
   }
-  
+
   const charCode = symbol.charCodeAt(0);
   return charCode >= 48 && charCode <= 57;
 }
@@ -132,5 +134,9 @@ export function getNeighbours<T>(mat: T[][], i: number, j: number): [T, number, 
 }
 
 export function isWithinMatrix<T>(mat: T[][], i: number, j: number) {
-  return i >= 0 && i< mat.length && j >= 0 && j < mat[0].length;
+  return i >= 0 && i < mat.length && j >= 0 && j < mat[0].length;
 }
+
+export type Config = {
+  onlyTests?: boolean;
+};

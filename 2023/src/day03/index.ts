@@ -1,6 +1,6 @@
-import run from "aocrunner";
-import { solvePart1, solvePart2, onlyTests, tests } from "./solution.js";
-import { cl } from "../utils/index.js";
+import { run } from "aoc-utils";
+import { solvePart1, solvePart2, config, tests } from "./solution.js";
+
 run({
   part1: {
     tests: tests[0],
@@ -11,5 +11,6 @@ run({
     solution: solvePart2,
   },
   trimTestInputs: false,
-  onlyTests,
+  onlyTests: true,
+  ...config,
 });

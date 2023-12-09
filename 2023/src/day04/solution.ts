@@ -1,4 +1,4 @@
-import { cl } from "../utils/index.js";
+import { cl, Config } from "aoc-utils";
 
 const t1 = {
   input: `Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
@@ -27,7 +27,7 @@ function parseInput(rawInput: string): [number[], number[]][] {
 export function solvePart1(rawInput: string) {
   const matchingNumbers = getMatchingNumbers(rawInput);
 
-  return matchingNumbers.map(n => (n ? Math.pow(2, n - 1): 0)).sum();
+  return matchingNumbers.map(n => (n ? Math.pow(2, n - 1) : 0)).sum();
 }
 
 const t2 = {
@@ -54,4 +54,7 @@ export function solvePart2(rawInput: string) {
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};
+

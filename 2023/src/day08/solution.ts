@@ -1,4 +1,4 @@
-import { cl } from "../utils/index.js";
+import { cl, Config } from "aoc-utils";
 
 const t1 = {
   input: `LLR
@@ -23,7 +23,6 @@ function parseInput(rawInput: string): [string, { [key: string]: { [key: string]
 
 export function solvePart1(rawInput: string) {
   const [instructions, map] = parseInput(rawInput);
-  // cl(instructions, map)
   let cNode = "AAA";
   let steps = 0;
   let ii = 0;
@@ -87,4 +86,6 @@ export function solvePart2(rawInput: string) {
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};

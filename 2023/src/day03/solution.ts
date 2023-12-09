@@ -1,4 +1,4 @@
-import { cl, getNeighbours, isDigit, iterateMat, matrixFromString } from "../utils/index.js";
+import { cl, Config, getNeighbours, isDigit, iterateMat, matrixFromString } from "aoc-utils";
 
 const t1 = {
   input: `467..114..
@@ -94,4 +94,6 @@ export function solvePart2(rawInput: string) {
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};

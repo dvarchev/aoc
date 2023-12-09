@@ -1,7 +1,6 @@
-import run from "aocrunner";
-import { solvePart1, solvePart2, onlyTests, tests } from "./solution.js";
-import { polifill } from "../utils/polifill.js";
-polifill();
+import { run } from "aoc-utils";
+import { solvePart1, solvePart2, config, tests } from "./solution.js";
+
 run({
   part1: {
     tests: tests[0],
@@ -12,5 +11,6 @@ run({
     solution: solvePart2,
   },
   trimTestInputs: false,
-  onlyTests,
+  onlyTests: true,
+  ...config,
 });

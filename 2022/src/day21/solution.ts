@@ -1,4 +1,4 @@
-import { cl } from "../utils/index.js";
+import { Config, cl } from "aoc-utils";
 
 const t1 = {
   input: `root: pppw + sjmn
@@ -19,30 +19,38 @@ hmdt: 32`,
   expected: 152,
 };
 
-const ops = {
+type keyType = "+" | "-" | "/" | "*" | "=";
+type opsNMap = {
+  [key: string]: (a: number, b: number) => number;
+};
+type opsMap = {
+  [key: string]: (a: string, b: string) => number | boolean;
+};
+
+const ops: opsNMap = {
   "+": (a, b) => a + b,
   "-": (a, b) => a - b,
   "/": (a, b) => a / b,
   "*": (a, b) => a * b,
   "=": (a, b) => a === b,
 };
-function parseInput(rawInput: string, opRepl = {}) {
-  const lines = rawInput.split("\n").map(l => l.split(": "));
-  const functions = {};
+function parseInput(rawInput: string, opRepl: opsMap = {}) {
+  const lines = rawInput.lines().map(l => l.split(": "));
+  const funcs: { [key: string]: () => number } = {};
 
   lines.forEach(([name, expr]) => {
     const exArr = expr.split(" ");
     if (exArr.length > 1) {
-      let op = ops[exArr[1]];
+      let op = ops[exArr[1] as keyType];
       if (opRepl[name]) {
-        op = opRepl[name];
-        functions[name] = () => op(exArr[0], exArr[2]);
-      } else functions[name] = () => op(functions[exArr[0]](), functions[exArr[2]]());
+        const ops = opRepl[name];
+        funcs[name] = () => ops(exArr[0], exArr[2]);
+      } else funcs[name] = () => op(funcs[exArr[0]](), funcs[exArr[2]]());
     } else {
-      functions[name] = () => +exArr[0];
+      funcs[name] = () => +exArr[0];
     }
   });
-  return functions;
+  return funcs;
 }
 
 export function solvePart1(rawInput: string) {
@@ -59,32 +67,22 @@ const t2 = {
 export function solvePart2(rawInput: string) {
   let isLeft = false,
     currentOper = "left";
-  const replacement = (opl, opr) => {
+  const replacement = (opl: string, opr: string) => {
     const aVal = input[opl]();
     currentOper = "right";
     const bVal = input[opr]();
-    cl(aVal);
-    cl(bVal);
     return aVal === bVal;
   };
   const input = parseInput(rawInput, { root: replacement });
   const orig = input["humn"];
   input["humn"] = () => {
-    cl(currentOper);
     return 3093175982595;
   };
   return input["root"]();
-  // for(let i=-100_000; i <100_000; i++)
-  //  210322230855108.84
-  // {210322230808298.44
-  //  210322230761488
-  //  210322230340194.2
-  //  210322183997873.2
-  //
-  //   input['humn'] = () => i;
-  //   if(input['root']()) return i;
-  // }
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+
+export const config: Config = {
+  onlyTests: false,
+};

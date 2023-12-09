@@ -1,4 +1,4 @@
-import { cl, clm, matrix } from "../utils/index.js";
+import { Config, cl, matrixN } from "aoc-utils";
 
 const t1 = {
   input: `498,4 -> 498,6 -> 496,6
@@ -32,7 +32,7 @@ function drop(mat: number[][], max: number) {
   }
 }
 function getMat(input: number[][][]): [number[][], number] {
-  const matr = matrix(900, 900);
+  const matr = matrixN(900, 900);
   let maxY = 0;
   input.forEach(([[sx, sy], ...next]) => {
     matr[sy][sx] = 1;
@@ -87,4 +87,6 @@ export function solvePart2(rawInput: string) {
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};

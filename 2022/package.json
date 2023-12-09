@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "yarn setup && aocrunner day",
-    "setup": "rm -rf src/template src/utils src/types src/tsconfig.json && cp -r ../utils src/utils && cp -r ../template src/template && cp -r ../types src/types && cp -r ../tsconfig.json src/tsconfig.json",
+    "setup": "rm -rf src/template src/tsconfig.json && cp -r ../template src/template && cp -r ../tsconfig.json.template tsconfig.json",
     "build": "aocrunner build",
     "format": "prettier -w src",
     "update:readme": "aocrunner update:readme"
@@ -16,15 +16,14 @@
   "author": "Deyan Varchev",
   "license": "ISC",
   "devDependencies": {
-    "@types/lodash": "^4.14.191",
     "@types/node": "^16.11.6",
     "aocrunner": "^1.9.6",
     "prettier": "^2.8.0"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "aoc-utils": "../aoc-utils"
   },
   "engines": {
-    "node": ">=16.13.0"
+    "node": ">=18.13.0"
   }
 }

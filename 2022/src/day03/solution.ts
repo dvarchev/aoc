@@ -1,5 +1,4 @@
-import _ from "lodash";
-import { charMap, cl } from "../utils/index.js";
+import { Config, charMap, cl } from "aoc-utils";
 
 const t1 = {
   input: `vJrwpWtwJgWrhcsFMMfFFhFp
@@ -21,9 +20,9 @@ function parseInput(rawInput: string) {
 const toCode = (cc: number) => (cc < ac ? cc - Ac + 27 : cc - ac + 1);
 
 export function solvePart1(rawInput: string) {
-  const input = parseInput(rawInput).map(l => l.chunk(l.length / 2));
-  return _(input)
-    .map(([c1, c2]) => _.find(c1, (c: string) => _.includes(c2, c))!.charCodeAt(0))
+  const input = parseInput(rawInput).map(l => l.chunk(l.length / 2).map(c => c.toArray()));
+  return input
+    .map(([c1, c2]) => c1.find((c: string) => c2.includes(c))!.charCodeAt(0))
     .map(toCode)
     .sum();
 }
@@ -36,14 +35,15 @@ const t2 = {
 export function solvePart2(rawInput: string) {
   const input = parseInput(rawInput);
 
-  return _(input)
+  return input
     .chunk(3)
-    .map(([c1l, c2l, c3l]): number =>
-      _.find(c1l, (c: string) => _.includes(c2l, c) && _.includes(c3l, c))!.charCodeAt(0),
-    )
+    .map(ch => ch.map(l => l.toArray()))
+    .map(([c1l, c2l, c3l]): number => c1l.find((c: string) => c2l.includes(c) && c3l.includes(c))!.charCodeAt(0))
     .map(toCode)
     .sum();
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};

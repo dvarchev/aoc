@@ -1,4 +1,4 @@
-import { cl } from "../utils/index.js";
+import { Config, cl } from "aoc-utils";
 
 const t1 = {
   input: `1=-0-2
@@ -65,4 +65,6 @@ export function solvePart2(rawInput: string) {
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};

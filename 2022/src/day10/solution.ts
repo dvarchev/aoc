@@ -1,5 +1,4 @@
-import _ from "lodash";
-import { cl, pictureToLetters, readFile } from "../utils/index.js";
+import { Config, cl, pictureToLetters, readFile } from "aoc-utils";
 
 const t1 = {
   input: readFile("./test1.txt", import.meta.url),
@@ -39,7 +38,7 @@ export function solvePart1(rawInput: string) {
   const cycles = [20, 60, 100, 140, 180, 220];
   const registerByCycles = getXByCycle(input, 220);
   const vals = cycles.map(c => c * registerByCycles[c - 1]);
-  return _.sum(vals);
+  return vals.sum();
 }
 
 const t2 = {
@@ -65,4 +64,6 @@ export function solvePart2(rawInput: string) {
   return result;
 }
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};

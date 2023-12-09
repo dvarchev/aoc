@@ -1,4 +1,4 @@
-import { cl } from "../utils/index.js";
+import { Config } from "aoc-utils";
 
 const t1 = {
   input: `Valve AA has flow rate=0; tunnels lead to valves DD, II, BB
@@ -185,11 +185,11 @@ export function solvePart2(rawInput: string) {
   };
 
   function graphSearch(minutes: number, onVisit: (item: Item) => void) {
-    const fringe: Array<Item> = [];
+    const fringe = [];
     fringe.push({ current: "AA", remaining: minutes, openMask: 0, total: 0 });
     const visited = new Set<string>();
     while (fringe.length > 0) {
-      const item = fringe.pop()!;
+      const item: Item = fringe.pop()!;
       const { openMask, remaining, current, total } = item;
       const visitedKey = `${current}:${remaining}:${openMask}:${total}`;
       if (visited.has(visitedKey)) continue;
@@ -244,4 +244,6 @@ export function solvePart2(rawInput: string) {
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};

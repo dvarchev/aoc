@@ -1,5 +1,4 @@
-import _ from "lodash";
-import { cl } from "../utils/index.js";
+import { Config, cl } from "aoc-utils";
 
 const t1 = {
   input: `mjqjpqmgbljsphdztnvjfqwrcgsmlb`,
@@ -73,4 +72,6 @@ export const tests = [
   [t1, t12, t13, t14, t15],
   [t2, t22, t23, t24, t25],
 ];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};

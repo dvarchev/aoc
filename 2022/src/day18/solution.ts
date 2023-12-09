@@ -1,4 +1,4 @@
-import { bfs, cl } from "../utils/index.js";
+import { Config, bfs, cl } from "aoc-utils";
 
 const t1 = {
   input: `2,2,2
@@ -107,4 +107,6 @@ export function solvePart2(rawInput: string) {
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};

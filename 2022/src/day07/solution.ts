@@ -1,5 +1,4 @@
-import _ from "lodash";
-import { cl, readFile } from "../utils/index.js";
+import { Config, cl, readFile } from "aoc-utils";
 
 const t1 = {
   input: readFile("./test1.txt", import.meta.url),
@@ -28,7 +27,7 @@ class Dir {
   }
   getSize(): number {
     if (this.size === undefined) {
-      const dirsSize = _(this.dirs)
+      const dirsSize = Object.values(this.dirs)
         .map(d => d.getSize())
         .sum();
       this.size = dirsSize + this.filesSize;
@@ -74,7 +73,7 @@ function parseInput(rawInput: string) {
 
 export function solvePart1(rawInput: string) {
   const allDirs = parseInput(rawInput);
-  const sum = _(allDirs)
+  const sum = Object.values(allDirs)
     .map(d => d.getSize())
     .filter(s => s <= 100000)
     .sum();
@@ -98,4 +97,6 @@ export function solvePart2(rawInput: string) {
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};

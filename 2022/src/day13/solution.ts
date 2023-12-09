@@ -1,5 +1,4 @@
-import _ from "lodash";
-import { cl } from "../utils/index.js";
+import { Config, cl } from "aoc-utils";
 
 const t1 = {
   input: `[1,1,3,1,1]
@@ -31,14 +30,15 @@ const t1 = {
 function parseInput(rawInput: string) {
   return rawInput.split("\n\n").map(p => p.split("\n").map(l => JSON.parse(l)));
 }
+
 function compare(f: any, s: any): boolean | undefined {
-  if (_.isInteger(f) && _.isInteger(s)) {
+  if (Number.isInteger(f) && Number.isInteger(s)) {
     if (f < s) return true;
     else if (s < f) return false;
     return;
   }
 
-  if (_.isArray(f) && _.isArray(s)) {
+  if (Array.isArray(f) && Array.isArray(s)) {
     for (let i = 0; i < f.length; i++) {
       const fi = f[i],
         si = s[i];
@@ -50,11 +50,11 @@ function compare(f: any, s: any): boolean | undefined {
     return;
   }
 
-  if (_.isArray(f) && _.isInteger(s)) {
+  if (Array.isArray(f) && Number.isInteger(s)) {
     s = [s];
     return compare(f, s);
   }
-  if (_.isArray(s) && _.isInteger(f)) {
+  if (Array.isArray(s) && Number.isInteger(f)) {
     f = [f];
     return compare(f, s);
   }
@@ -62,7 +62,7 @@ function compare(f: any, s: any): boolean | undefined {
 export function solvePart1(rawInput: string) {
   const input = parseInput(rawInput);
   const ind = input.map(([f, s], i) => (compare(f, s) ? i + 1 : 0));
-  return _.sum(ind);
+  return ind.sum();
 }
 
 const t2 = {
@@ -83,4 +83,6 @@ export function solvePart2(rawInput: string) {
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};

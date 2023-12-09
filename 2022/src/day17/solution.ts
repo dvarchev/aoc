@@ -1,4 +1,4 @@
-import { cl, clm, matrix } from "../utils/index.js";
+import { Config, cl, clm, matrix, matrixN } from "aoc-utils";
 
 const t1 = {
   input: `>>><<><>><<<>><>>><<<>>><<<><<<>><>><<>>`,
@@ -120,7 +120,7 @@ export function solvePart1(rawInput: string) {
   const { jetMoves, rocks } = parseInput(rawInput);
   const rounds = 2022;
   const state: { board: number[][]; top: number } = {
-    board: matrix(rounds * 3 + 10, 7),
+    board: matrixN(rounds * 3 + 10, 7),
     top: 0,
   };
   runGame(state, jetMoves, rocks, rounds);
@@ -159,7 +159,7 @@ export function solvePart2(rawInput: string) {
   const { jetMoves, rocks } = parseInput(rawInput);
   let rounds = 10000; // Find max cycle after first 10K rounds
   const state: { board: number[][]; top: number } = {
-    board: matrix(rounds * 3 + 10, 7),
+    board: matrixN(rounds * 3 + 10, 7),
     top: 0,
   };
   const moves = runGame(state, jetMoves, rocks, rounds);
@@ -172,9 +172,11 @@ export function solvePart2(rawInput: string) {
   const rocksInLoops = loops * length;
   const rocksAfterLoops = 1000000000000 - start - rocksInLoops;
   const afterLoopEnd = moves[start + length + rocksAfterLoops][1] + 1;
-  const linesAfterLoop = afterLoopEnd - linesInLoop - linesInStart;
+  const linesAfterLoop = afterLoopEnd - linesInLoop - linesInStart - 1;
   return linesInStart + linesInLoop * loops + linesAfterLoop;
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};

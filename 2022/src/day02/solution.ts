@@ -1,5 +1,4 @@
-import _ from "lodash";
-import { cl } from "../utils/index.js";
+import { Config, cl } from "aoc-utils";
 
 const t1 = {
   input: `A Y
@@ -51,7 +50,7 @@ function parseInput(rawInput: string): string[][] {
 export function solvePart1(rawInput: string) {
   const input = parseInput(rawInput);
   const moves = input.map(l => scores[l.join("")] + moveScore[l[1]]);
-  return _.sum(moves);
+  return moves.sum();
 }
 
 const t2 = {
@@ -66,8 +65,10 @@ export function solvePart2(rawInput: string) {
     return scores[l[0] + mm] + moveScore[mm];
   });
 
-  return _.sum(moves);
+  return moves.sum();
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};

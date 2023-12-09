@@ -1,4 +1,4 @@
-import { cl, clm, matrix } from "../utils/index.js";
+import { Config, cl, clm, matrix, matrixN } from "aoc-utils";
 
 const t1 = {
   input: `        ...#
@@ -123,7 +123,7 @@ function apply(mat: number[][], target: number[][], [px, py]: [number, number]) 
 function rotateMat(mat: number[][], times: number): number[][] {
   let newMat: number[][];
   for (let t = 0; t < times; t++) {
-    newMat = matrix(mat.length, mat.length);
+    newMat = matrixN(mat.length, mat.length);
 
     for (let i = 0; i < mat.length; i++)
       for (let j = 0; j < mat.length; j++) newMat[j][mat.length - (i + 1)] = mat[i][j];
@@ -132,7 +132,7 @@ function rotateMat(mat: number[][], times: number): number[][] {
   return newMat!;
 }
 function subMat(mat: number[][], [sx, sy]: [number, number], width: number, height: number): number[][] {
-  const res = matrix(height, width);
+  const res = matrixN(height, width);
 
   for (let i = 0; i < height; i++) {
     for (let j = 0; j < width; j++) res[i][j] = mat[sx + i][sy + j];
@@ -143,7 +143,7 @@ function subMat(mat: number[][], [sx, sy]: [number, number], width: number, heig
 function fixBoard(board: number[][], side: number): number[][] {
   if (side < 10) return board;
 
-  const fixedBoard = matrix(side * 3, side * 4);
+  const fixedBoard = matrixN(side * 3, side * 4);
   let start: [number, number] = [0, board[0].indexOf(1)];
 
   const mat1 = subMat(board, start, side, side);
@@ -323,4 +323,7 @@ export function solvePart2(rawInput: string) {
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+
+export const config: Config = {
+  onlyTests: false,
+};

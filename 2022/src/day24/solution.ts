@@ -1,4 +1,4 @@
-import { cl, clm, cmc, iterateMat, matrix, Point } from "../utils/index.js";
+import { cl, clm, cmc, Config, iterateMat, matrix, Point } from "aoc-utils";
 
 const t1 = {
   input: `#.######
@@ -168,4 +168,7 @@ export function solvePart2(rawInput: string) {
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+
+export const config: Config = {
+  onlyTests: false,
+};

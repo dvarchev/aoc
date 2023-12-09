@@ -1,4 +1,4 @@
-import { cl, cmc } from "../utils/index.js";
+import { Config, cl, cmc } from "aoc-utils";
 
 const t1 = {
   input: `Sensor at x=2, y=18: closest beacon is at x=-2, y=15
@@ -55,7 +55,10 @@ export function solvePart1(rawInput: string) {
 
   const mergedSegments = mergeOverlappingSegments(intersections);
   const lengths = mergedSegments.map(([c1, c2]) => c2 - c1 + 1);
-  const beaconsAtY = input.filter(([_s, [_bx, by]]) => by === y).map(([_s, [bx, by]]) => `${bx},${by}`).unique();
+  const beaconsAtY = input
+    .filter(([_s, [_bx, by]]) => by === y)
+    .map(([_s, [bx, by]]) => `${bx},${by}`)
+    .unique();
   const totalLength = lengths.sum();
   return totalLength - beaconsAtY.length;
 }
@@ -100,4 +103,7 @@ export function solvePart2(rawInput: string) {
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  //   trimTestInputs: true,
+  onlyTests: false,
+};

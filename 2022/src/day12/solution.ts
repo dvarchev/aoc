@@ -1,6 +1,4 @@
-import _ from "lodash";
-import { Graph } from "../utils/graph.js";
-import { charMap, cl } from "../utils/index.js";
+import { Config, Graph, charMap, cl } from "aoc-utils";
 
 const t1 = {
   input: `Sabqponm
@@ -79,4 +77,6 @@ export function solvePart2(rawInput: string) {
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};

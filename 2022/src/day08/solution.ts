@@ -1,5 +1,4 @@
-import _ from "lodash";
-import { cl } from "../utils/index.js";
+import { Config, cl } from "aoc-utils";
 
 const t1 = {
   input: `30373
@@ -31,15 +30,14 @@ function getLTRBArrays(input: number[][], inputReversed: number[][], i: number, 
 function getVisibileFlag(i: number, j: number, input: number[][], inputReversed: number[][]): number {
   const h = input[i][j];
   const { l, r, t, b } = getLTRBArrays(input, inputReversed, i, j);
-  return _.some([l, r, t, b], arr => _.every(arr, n => h > n)) ? 1 : 0;
+  return [l, r, t, b].some(arr => arr.every(n => h > n)) ? 1 : 0;
 }
 
 export function solvePart1(rawInput: string) {
   const { input, inputReversed } = parseInput(rawInput);
 
   const vals = input.flatMap((l, i) => l.map((n, j) => getVisibileFlag(i, j, input, inputReversed)));
-
-  return _.sum(vals);
+  return vals.sum();
 }
 
 const t2 = {
@@ -63,8 +61,10 @@ function getSceneticValue(i: number, j: number, input: number[][], inputReversed
 export function solvePart2(rawInput: string) {
   const { input, inputReversed } = parseInput(rawInput);
   const vals = input.flatMap((l, i) => l.map((n, j) => getSceneticValue(i, j, input, inputReversed)));
-  return _.max(vals);
+  return vals.max();
 }
 
 export const tests = [[t1], [t2]];
-export const onlyTests = false;
+export const config: Config = {
+  onlyTests: false,
+};

@@ -62,15 +62,14 @@ declare global {
      * Sorts the array in ascending order.
      */
     nSort(): number[];
-    
+
     /**
     * Returns the number of elements in the array that satisfy the provided predicate function.
     * If no predicate is provided, it returns the total number of elements in the array.
     * @param predicate A function that tests each element of the array.
     * @returns The number of elements that satisfy the predicate.
     */
-    count(predicate?: (elem: T) => boolean): number;
-
+    count(predicate?: (elem: T, index: number) => boolean): number;
   }
 
   // Extending the String prototype
@@ -181,8 +180,8 @@ export function polyfill() {
   }
 
   if (!Array.prototype.count) {
-    Array.prototype.count = function (predicate?: (elem: any)=> boolean) {
-      if(predicate) return this.filter(predicate).length;
+    Array.prototype.count = function (predicate?: (elem: any, i: number) => boolean) {
+      if (predicate) return this.filter(predicate).length;
       return this.length;
     };
   }

@@ -170,13 +170,24 @@ export function matrixN(linesValue: number, columnsValue: number, defaultVal: nu
  * @param mapFn - Optional function to apply to each element in the matrix. If not specified, the elements will be strings.
  * @returns The created matrix.
  */
-// export function matrixFromString<T>(input: string, mapFn?: (s: string) => T | string): (T | string)[][] {
-//   return input.lines().map(l => l.toArray().map(mapFn || (s => s)));
-// }
-
-
 export function matrixFromString<T = string>(input: string, mapFn?: (s: string) => T ): T[][] {
   return input.lines().map(l => l.toArray().map(mapFn || (s => s as T)));
+}
+
+/**
+ * Function to transpose a matrix. This function does not mutate the original matrix. 
+ *
+ * @param mat - The matrix to transpose.
+ * @returns The transposed matrix.
+ */
+export function transposeMat<T = string>(mat: T[][]): T[][] {
+  const lines = mat.length;
+  const columns = mat[0].length;
+  const transposed = matrix(columns, lines, mat[0][0]);
+  iterateMat(mat, (n, l, c) => {
+    transposed[c][l] = n;
+  });
+  return transposed;
 }
 
 
